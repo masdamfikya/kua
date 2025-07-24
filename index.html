@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KUA Sungai Bahar - Pelayanan Nikah & Konsultasi Keluarga</title>
     <!-- Favicon -->
-    <link rel="icon" href="images/logo-kua.png" type="image/png">
+    <link rel="icon" href="logo-kua.png" type="image/png">
     <!-- Font & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Slick Carousel -->
@@ -31,12 +31,12 @@
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 15px;
         }
         
         /* Header */
         header {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/header-bg.jpg');
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                url('../images/header-bg.jpg') no-repeat center center;
             background-size: cover;
             background-position: center;
             color: white;
@@ -54,6 +54,7 @@
             margin-top: 30px;
         }
         
+        /* Logo di kiri atas */
         .header-logo {
             position: absolute;
             left: 20px;
@@ -92,7 +93,6 @@
             text-decoration: none;
             padding: 15px 0;
             transition: all 0.3s;
-            font-size: 14px;
         }
         
         nav a:hover {
@@ -105,7 +105,6 @@
             color: var(--secondary);
             padding: 10px;
             font-weight: bold;
-            font-size: 14px;
         }
         
         /* Main Content */
@@ -127,10 +126,9 @@
             width: 100%;
             height: 300px;
             object-fit: cover;
-            display: block;
         }
         
-        /* Slick Carousel */
+        /* Slick Carousel Customization */
         .slick-prev:before, 
         .slick-next:before {
             color: var(--secondary) !important;
@@ -152,7 +150,6 @@
             color: var(--primary);
             border-bottom: 2px solid var(--accent);
             padding-bottom: 10px;
-            margin-top: 0;
         }
         
         .news-item {
@@ -169,7 +166,6 @@
         .news-item h4 {
             margin: 5px 0;
             color: var(--secondary);
-            font-size: 16px;
         }
         
         .news-date {
@@ -209,44 +205,186 @@
             color: var(--accent);
         }
 
-        /* Mobile Responsive */
+        /* Panel Layanan Cepat */
+        .quick-services {
+            background-color: var(--light);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        /* Jadwal Sholat */
+        .prayer-times {
+            background-color: var(--secondary);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .prayer-times h3 {
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 10px;
+            color: white;
+        }
+
+        .prayer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .prayer-time {
+            background: rgba(255,255,255,0.1);
+            padding: 8px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        /* Form Cek Status Nikah */
+        .marriage-check {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary);
+        }
+
+        /* Kalender Hijriyah */
+        .hijri-date {
+            background-color: var(--primary);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        /* Info Box */
+        .info-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
             .main-content {
                 flex-direction: column;
             }
-            
+
             .slideshow {
                 width: 100%;
                 margin-bottom: 20px;
             }
-            
+
             .slideshow img {
-                height: 200px;
+                height: 200px !important; /* Ukuran lebih kecil untuk ponsel */
             }
-            
-            nav ul {
-                flex-direction: column;
+
+            .news-update {
+                width: 100%;
+                margin-top: 0;
             }
-            
-            nav li {
-                flex: none;
+
+            header {
+                height: 150px;
             }
-            
+
+            .header-content {
+                margin-top: 30px;
+            }
+
             .header-logo {
                 width: 60px;
                 height: 60px;
             }
-            
-            .header-content {
-                margin-top: 40px;
+
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav li {
+                width: 100%;
+            }
+
+            nav a {
+                padding: 10px 0;
+            }
+
+            .prayer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .slideshow img {
+                height: 150px !important; /* Ukuran lebih kecil untuk layar sangat kecil */
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header dengan logo di kiri atas -->
     <header>
-        <img src="images/logo-kua.png" alt="Logo KUA Sungai Bahar" class="header-logo">
+        <img src="images/logo-kua.png" alt="Logo KUA" class="header-logo">
         <div class="header-content">
             <h1>KUA Sungai Bahar</h1>
             <p>Pusat Informasi dan Kegiatan Masyarakat</p>
@@ -279,9 +417,9 @@
         <div class="main-content">
             <!-- Slideshow -->
             <div class="slideshow">
-                <div><img src="images/slide1.jpg" loading="lazy" alt="Pelayanan KUA"></div>
-                <div><img src="images/slide2.jpg" loading="lazy" alt="Kegiatan Sosial"></div>
-                <div><img src="images/slide3.jpg" loading="lazy" alt="Konsultasi Pernikahan"></div>
+                <div><img src="images/slide1.jpg" alt="Pelayanan KUA"></div>
+                <div><img src="images/slide2.jpg" alt="Kegiatan Sosial"></div>
+                <div><img src="images/slide3.jpg" alt="Konsultasi Pernikahan"></div>
             </div>
             
             <!-- News Update -->
@@ -301,7 +439,105 @@
                     <p>Program bimbingan pranikah untuk calon pengantin setiap Sabtu pagi...</p>
                     <a href="#" class="read-more">Baca selengkapnya <i class="fas fa-arrow-right"></i></a>
                 </div>
+                
+                <div class="news-item">
+                    <div class="news-date">10 Juli 2025</div>
+                    <h4>Penghargaan KUA Teladan</h4>
+                    <p>KUA Sungai Bahar meraih penghargaan sebagai KUA teladan tingkat provinsi...</p>
+                    <a href="#" class="read-more">Baca selengkapnya <i class="fas fa-arrow-right"></i></a>
+                </div>
             </div>
+        </div>
+
+        <!-- Layanan Cepat -->
+        <div class="quick-services">
+            <div class="service-card" onclick="location.href='#nikah'">
+                <div class="service-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h4>Pendaftaran Nikah</h4>
+                <p>Persyaratan dan formulir pendaftaran</p>
+            </div>
+            <div class="service-card" onclick="location.href='#konsultasi'">
+                <div class="service-icon">
+                    <i class="fas fa-hands-helping"></i>
+                </div>
+                <h4>Konsultasi Keluarga</h4>
+                <p>Bimbingan pranikah dan keluarga sakinah</p>
+            </div>
+            <div class="service-card" onclick="location.href='#cek-status'">
+                <div class="service-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h4>Cek Status Nikah</h4>
+                <p>Verifikasi data pernikahan</p>
+            </div>
+            <div class="service-card" onclick="location.href='#jadwal'">
+                <div class="service-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h4>Jadwal Pelayanan</h4>
+                <p>Jam buka dan jadwal petugas</p>
+            </div>
+        </div>
+
+        <!-- Fitur Khusus KUA -->
+        <div class="main-content">
+            <!-- Form Cek Status Nikah -->
+            <div class="marriage-check" id="cek-status">
+                <h3><i class="fas fa-search"></i> Cek Status Pernikahan</h3>
+                <form id="marriageForm">
+                    <div class="form-group">
+                        <label for="nik">Nomor Induk Kependudukan (NIK)</label>
+                        <input type="text" id="nik" placeholder="Masukkan NIK" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="marriage-date">Tanggal Pernikahan (perkiraan)</label>
+                        <input type="date" id="marriage-date" required>
+                    </div>
+                    <button type="submit" class="btn"><i class="fas fa-search"></i> Cek Status</button>
+                </form>
+                <div id="result" style="margin-top:15px; display:none;"></div>
+            </div>
+
+            <!-- Jadwal Sholat -->
+            <div class="prayer-times">
+                <h3><i class="fas fa-mosque"></i> Jadwal Sholat Hari Ini</h3>
+                <div class="prayer-grid">
+                    <div class="prayer-time">
+                        <div>Subuh</div>
+                        <div>04:30 WIB</div>
+                    </div>
+                    <div class="prayer-time">
+                        <div>Dzuhur</div>
+                        <div>12:00 WIB</div>
+                    </div>
+                    <div class="prayer-time">
+                        <div>Ashar</div>
+                        <div>15:15 WIB</div>
+                    </div>
+                    <div class="prayer-time">
+                        <div>Maghrib</div>
+                        <div>18:05 WIB</div>
+                    </div>
+                    <div class="prayer-time">
+                        <div>Isya</div>
+                        <div>19:20 WIB</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Info Tambahan -->
+        <div class="info-box" id="nikah">
+            <h3><i class="fas fa-heart"></i> Prosedur Pernikahan</h3>
+            <ol>
+                <li>Pendaftaran online/mandiri</li>
+                <li>Pembayaran biaya administrasi</li>
+                <li>Bimbingan pranikah (2x pertemuan)</li>
+                <li>Pelaksanaan akad nikah</li>
+                <li>Pencatatan dan penerbitan buku nikah</li>
+            </ol>
         </div>
     </div>
     
@@ -314,7 +550,7 @@
                 <a href="#"><i class="fab fa-youtube"></i></a>
                 <a href="#"><i class="fab fa-whatsapp"></i></a>
             </div>
-            <p>&copy; 2025 KUA Sungai Bahar - Semua Hak Dilindungi</p>
+            <p>© 2025 KUA Sungai Bahar - Semua Hak Dilindungi</p>
             <p>Alamat: Jl. KUA No. 10, Kec. Sungai Bahar, Kab. Muaro Jambi | Telp: (0741) 123456</p>
         </div>
     </footer>
@@ -324,7 +560,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script>
         $(document).ready(function(){
-            // Initialize Slick Carousel
+            // Inisialisasi Slick Carousel
             $('.slideshow').slick({
                 dots: true,
                 infinite: true,
@@ -338,13 +574,39 @@
                     {
                         breakpoint: 768,
                         settings: {
-                            arrows: false
+                            arrows: false // Hilangkan panah di layar kecil
                         }
                     }
                 ]
             });
+            
+            // Memuat gambar versi mobile
+            function loadMobileImages() {
+                if (window.innerWidth <= 768) {
+                    $('.slideshow img').each(function() {
+                        const src = $(this).attr('src');
+                        $(this).attr('src', src.replace('.jpg', '-mobile.jpg'));
+                    });
+                }
+            }
 
-            // Update Hijri Date
+            // Jalankan saat load dan resize
+            $(window).on('load resize', loadMobileImages);
+
+            // Form Cek Status Nikah
+            $('#marriageForm').submit(function(e){
+                e.preventDefault();
+                $('#result').html(`
+                    <div style="background:#f0f8ff; padding:15px; border-radius:5px;">
+                        <h4><i class="fas fa-check-circle" style="color:green;"></i> Data Ditemukan</h4>
+                        <p>Atas nama: <strong>Ahmad Budi</strong></p>
+                        <p>Tanggal Nikah: <strong>15 Januari 2025</strong></p>
+                        <p>Nomor Akta: <strong>123/VI/2025</strong></p>
+                    </div>
+                `).show();
+            });
+
+            // Update Tanggal Hijriah
             const today = new Date();
             const hijriDate = new Intl.DateTimeFormat('id-u-ca-islamic', {
                 day: 'numeric',
@@ -352,6 +614,22 @@
                 year: 'numeric'
             }).format(today);
             $('#hijri-date').text(hijriDate);
+
+            // Simulasi Jadwal Sholat
+            function updatePrayerTimes() {
+                const times = {
+                    'Subuh': '04:30',
+                    'Dzuhur': '12:00',
+                    'Ashar': '15:15',
+                    'Maghrib': '18:05',
+                    'Isya': '19:20'
+                };
+                
+                $.each(times, function(prayer, time){
+                    $(`.prayer-time:contains('${prayer}') div:nth-child(2)`).text(time + ' WIB');
+                });
+            }
+            updatePrayerTimes();
         });
     </script>
 </body>

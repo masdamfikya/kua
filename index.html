@@ -148,6 +148,11 @@
         .mobile-nav {
             width: 100%;
             text-align: center;
+            visibility: hidden; /* Sembunyikan default, tampilkan saat active */
+        }
+        
+        .mobile-menu-overlay.active .mobile-nav {
+            visibility: visible; /* Tampilkan saat overlay aktif */
         }
         
         .mobile-nav ul {
@@ -446,7 +451,7 @@
             }
 
             .mobile-menu-overlay {
-                display: flex; /* Pastikan flex aktif */
+                display: flex;
             }
         }
 

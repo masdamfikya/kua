@@ -118,20 +118,21 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.9); /* Latar belakang gelap terlihat */
+            background-color: rgba(0, 0, 0, 0.9);
             z-index: 999;
+            display: flex;
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
             padding-top: 60px;
             transform: translateY(-100%);
             transition: transform 0.3s ease-in-out;
-            opacity: 0; /* Sembunyikan secara visual */
+            opacity: 0;
         }
         
         .mobile-menu-overlay.active {
             transform: translateY(0);
-            opacity: 1; /* Tampilkan saat aktif */
+            opacity: 1;
         }
         
         .mobile-menu-close {
@@ -445,7 +446,7 @@
             }
 
             .mobile-menu-overlay {
-                display: block; /* Pastikan ada di DOM */
+                display: flex; /* Pastikan flex aktif */
             }
         }
 

@@ -122,9 +122,15 @@
             background-color: rgba(0,0,0,0.9);
             z-index: 999;
             flex-direction: column;
-            justify-content: flex-start; /* Mulai dari atas */
+            justify-content: flex-start;
             align-items: center;
-            padding-top: 60px; /* Jarak dari atas untuk header */
+            padding-top: 60px;
+            transform: translateY(-100%); /* Sembunyikan di atas */
+            transition: transform 0.3s ease-in-out; /* Animasi slide-down */
+        }
+        
+        .mobile-menu-overlay.active {
+            transform: translateY(0); /* Geser ke bawah saat aktif */
         }
         
         .mobile-menu-close {
@@ -144,7 +150,7 @@
         }
         
         .mobile-nav li {
-            margin: 15px 0; /* Jarak vertikal antar item */
+            margin: 15px 0;
             width: 100%;
         }
         
@@ -156,7 +162,7 @@
             padding: 15px;
             width: 80%;
             margin: 0 auto;
-            background-color: rgba(255, 255, 255, 0.1); /* Latar sedikit terang */
+            background-color: rgba(255, 255, 255, 0.1);
             border-radius: 5px;
             transition: background-color 0.3s;
         }
@@ -672,17 +678,17 @@
             // Toggle Mobile Menu
             $('.mobile-menu-btn').click(function(){
                 if (window.innerWidth <= 768) {
-                    $('.mobile-menu-overlay').fadeIn();
+                    $('.mobile-menu-overlay').toggleClass('active');
                 }
             });
 
             $('.mobile-menu-close').click(function(){
-                $('.mobile-menu-overlay').fadeOut();
+                $('.mobile-menu-overlay').removeClass('active');
             });
 
             // Close mobile menu when clicking a link
             $('.mobile-nav a').click(function(){
-                $('.mobile-menu-overlay').fadeOut();
+                $('.mobile-menu-overlay').removeClass('active');
             });
 
             // Form Cek Status Nikah

@@ -120,6 +120,7 @@
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             overflow: hidden;
+            min-height: 150px; /* Menjaga stabilitas tata letak */
         }
         
         .slideshow img {
@@ -560,38 +561,57 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script>
         $(document).ready(function(){
-            // Inisialisasi Slick Carousel
-            $('.slideshow').slick({
-                dots: true,
-                infinite: true,
-                speed: 500,
-                fade: true,
-                cssEase: 'linear',
-                autoplay: true,
-                autoplaySpeed: 3000,
-                arrows: true,
-                responsive: [
-                    {
-                        breakpoint: 768,
-                        settings: {
-                            arrows: false // Hilangkan panah di layar kecil
-                        }
-                    }
-                ]
-            });
-            
-            // Memuat gambar versi mobile
+            // Fungsi untuk memuat gambar mobile
             function loadMobileImages() {
                 if (window.innerWidth <= 768) {
                     $('.slideshow img').each(function() {
                         const src = $(this).attr('src');
-                        $(this).attr('src', src.replace('.jpg', '-mobile.jpg'));
+                        const mobileSrc = src.replace('.jpg', '-mobile.jpg');
+                        // Cek apakah file mobile ada sebelum mengganti
+                        const img = new Image();
+                        img.src = mobileSrc;
+                        img.onload = function() {
+                            $(this).attr('src', mobileSrc);
+                        };
+                        img.onerror = function() {
+                            console.log('File mobile tidak ditemukan, menggunakan asli:', src);
+                            // Tetap gunakan gambar asli jika mobile tidak ada
+                        }.bind(this);
                     });
                 }
             }
 
+            // Inisialisasi Slick Carousel setelah gambar dimuat
+            function initSlideshow() {
+                $('.slideshow').slick({
+                    dots: true,
+                    infinite: true,
+                    speed: 500,
+                    fade: true,
+                    cssEase: 'linear',
+                    autoplay: true,
+                    autoplaySpeed: 3000,
+                    arrows: true,
+                    responsive: [
+                        {
+                            breakpoint: 768,
+                            settings: {
+                                arrows: false
+                            }
+                        }
+                    ]
+                });
+            }
+
             // Jalankan saat load dan resize
-            $(window).on('load resize', loadMobileImages);
+            $(window).on('load resize', function() {
+                // Hentikan carousel sebelum memperbarui
+                if ($('.slideshow').hasClass('slick-initialized')) {
+                    $('.slideshow').slick('unslick');
+                }
+                loadMobileImages();
+                initSlideshow();
+            });
 
             // Form Cek Status Nikah
             $('#marriageForm').submit(function(e){

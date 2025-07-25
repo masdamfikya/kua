@@ -1,1 +1,436 @@
+:root {
+    --primary: #2c786c;
+    --secondary: #1a5f7a;
+    --accent: #f8b400;
+    --light: #faf5e4;
+}
 
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../images/header-bg.jpg') no-repeat center center;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 15px 0;
+    position: relative;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.header-content {
+    z-index: 2;
+    margin-top: 30px;
+}
+
+.header-logo {
+    position: absolute;
+    left: 20px;
+    top: 10px;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+    z-index: 3;
+}
+
+/* Navigation */
+.desktop-nav {
+    background-color: var(--secondary);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.desktop-nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.desktop-nav li {
+    flex: 1;
+    text-align: center;
+}
+
+.desktop-nav a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px 0;
+    transition: all 0.3s;
+}
+
+.desktop-nav a:hover {
+    background-color: var(--primary);
+}
+
+/* Marquee */
+.marquee {
+    background-color: var(--accent);
+    color: var(--secondary);
+    padding: 10px;
+    font-weight: bold;
+}
+
+/* Main Content */
+.main-content {
+    display: flex;
+    margin: 20px 0;
+    gap: 20px;
+}
+
+.slideshow {
+    flex: 2;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.slideshow img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+/* Slick Carousel Customization */
+.slick-prev:before, 
+.slick-next:before {
+    color: var(--secondary) !important;
+}
+
+.slick-dots li button:before {
+    font-size: 12px !important;
+}
+
+.news-update {
+    flex: 1;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 15px;
+}
+
+.news-update h3 {
+    color: var(--primary);
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 10px;
+}
+
+.news-item {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #ddd;
+    transition: transform 0.3s;
+}
+
+.news-item:hover {
+    transform: translateX(5px);
+}
+
+.news-item h4 {
+    margin: 5px 0;
+    color: var(--secondary);
+}
+
+.news-date {
+    font-size: 0.8em;
+    color: #777;
+}
+
+.read-more {
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 0.9em;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+/* Footer */
+footer {
+    background-color: var(--secondary);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 30px;
+}
+
+.social-icons {
+    margin: 15px 0;
+}
+
+.social-icons a {
+    color: white;
+    margin: 0 10px;
+    font-size: 1.5em;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: var(--accent);
+}
+
+/* Panel Layanan Cepat */
+.quick-services {
+    background-color: var(--light);
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.service-card {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+/* Jadwal Sholat */
+.prayer-times {
+    background-color: var(--secondary);
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.prayer-times h3 {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 10px;
+    color: white;
+}
+
+.prayer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.prayer-time {
+    background: rgba(255,255,255,0.1);
+    padding: 8px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Form Cek Status Nikah */
+.marriage-check {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.btn {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background-color: var(--secondary);
+}
+
+/* Kalender Hijriyah */
+.hijri-date {
+    background-color: var(--primary);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+/* Info Box */
+.info-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+    }
+
+    .slideshow {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .slideshow img {
+        height: 200px !important;
+    }
+
+    .news-update {
+        width: 100%;
+        margin-top: 0;
+    }
+
+    .header-content {
+        margin-top: 50px;
+    }
+
+    .header-logo {
+        width: 60px;
+        height: 60px;
+    }
+
+    .desktop-nav {
+        display: none !important;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        font-size: 24px;
+        color: white;
+        cursor: pointer;
+        z-index: 1000;
+    }
+
+    .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.9);
+        z-index: 999;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .mobile-menu-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 30px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .mobile-nav ul {
+        list-style: none;
+        padding: 0;
+        text-align: center;
+    }
+
+    .mobile-nav li {
+        margin: 20px 0;
+    }
+
+    .mobile-nav a {
+        color: white;
+        font-size: 20px;
+        text-decoration: none;
+    }
+
+    .mobile-nav i {
+        margin-right: 10px;
+    }
+
+    .prayer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    header {
+        height: 150px;
+    }
+
+    .header-content {
+        margin-top: 30px;
+    }
+}
+
+@media (min-width: 769px) {
+    .mobile-menu-overlay {
+        display: none !important;
+    }
+    .mobile-menu-btn {
+        display: none !important;
+    }
+    .desktop-nav {
+        display: block !important;
+    }
+}
+
+/* Mobile Landscape Optimization */
+@media (max-width: 768px) and (orientation: landscape) {
+    .slideshow img {
+        height: 250px !important;
+    }
+}
+
+/* Debugging: Warna latar untuk memeriksa navigasi */
+.desktop-nav {
+    background-color: var(--secondary);
+}
+
+.mobile-nav {
+    background-color: rgba(255, 0, 0, 0.5); /* Warna merah transparan untuk debugging */
+}

@@ -118,21 +118,20 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
+            background-color: rgba(0, 0, 0, 0.9); /* Latar belakang gelap terlihat */
             z-index: 999;
-            display: flex;
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
             padding-top: 60px;
             transform: translateY(-100%);
             transition: transform 0.3s ease-in-out;
-            opacity: 0;
+            opacity: 0; /* Sembunyikan secara visual */
         }
         
         .mobile-menu-overlay.active {
             transform: translateY(0);
-            opacity: 1;
+            opacity: 1; /* Tampilkan saat aktif */
         }
         
         .mobile-menu-close {
@@ -148,11 +147,6 @@
         .mobile-nav {
             width: 100%;
             text-align: center;
-            visibility: hidden; /* Sembunyikan default, tampilkan saat active */
-        }
-        
-        .mobile-menu-overlay.active .mobile-nav {
-            visibility: visible; /* Tampilkan saat overlay aktif */
         }
         
         .mobile-nav ul {
@@ -205,7 +199,7 @@
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             overflow: hidden;
-            min-height: 15px;
+            min-height: 150px;
         }
         
         .slideshow img {
@@ -451,7 +445,7 @@
             }
 
             .mobile-menu-overlay {
-                display: flex;
+                display: block; /* Pastikan ada di DOM */
             }
         }
 
@@ -493,11 +487,11 @@
         </div>
         <nav class="mobile-nav">
             <ul>
-                <li><a href="#" class="nav-link"><i class="fas fa-home"></i> Beranda</a></li>
-                <li><a href="#" class="nav-link"><i class="fas fa-box-open"></i> Produk</a></li>
-                <li><a href="#" class="nav-link"><i class="fas fa-info-circle"></i> Tentang Kami</a></li>
-                <li><a href="#" class="nav-link"><i class="fas fa-newspaper"></i> Kegiatan/Berita</a></li>
-                <li><a href="#" class="nav-link"><i class="fas fa-phone"></i> Kontak</a></li>
+                <li><a href="#"><i class="fas fa-home"></i> Beranda</a></li>
+                <li><a href="#"><i class="fas fa-box-open"></i> Produk</a></li>
+                <li><a href="#"><i class="fas fa-info-circle"></i> Tentang Kami</a></li>
+                <li><a href="#"><i class="fas fa-newspaper"></i> Kegiatan/Berita</a></li>
+                <li><a href="#"><i class="fas fa-phone"></i> Kontak</a></li>
             </ul>
         </nav>
     </div>

@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
     // Mobile Menu Toggle
     $('.mobile-menu-btn').click(function(){
@@ -91,4 +90,21 @@ $(document).ready(function(){
         });
     }
     updatePrayerTimes();
+
+    // Toggle Mobile Menu
+    $('.mobile-menu-btn').on('click', function(){
+        if (window.innerWidth <= 768) {
+            console.log('Toggle menu clicked'); // Debug
+            $('.mobile-menu-overlay').toggleClass('active');
+        }
+    });
+
+    $('.mobile-menu-close').on('click', function(){
+        $('.mobile-menu-overlay').removeClass('active');
+    });
+
+    // Close mobile menu when clicking a link
+    $('.nav-link').on('click', function(){
+        $('.mobile-menu-overlay').removeClass('active');
+    });
 });

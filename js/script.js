@@ -1,26 +1,21 @@
+// script.js (versi diperbaiki)
 $(document).ready(function(){
-    // Mobile Menu Toggle
-    $('.mobile-menu-btn').click(function(){
-        if (window.innerWidth <= 768) {
-            $('.mobile-menu-overlay').fadeIn();
-        }
-    });
-    
-    $('.mobile-menu-close').click(function(){
-        $('.mobile-menu-overlay').fadeOut();
-    });
-    
-    // Close when clicking a link
-    $('.mobile-nav a').click(function(){
-        $('.mobile-menu-overlay').fadeOut();
+    // Tombol hamburger untuk buka/tutup menu mobile
+    $('.mobile-menu-btn').click(function() {
+    $('.mobile-menu-overlay').toggleClass('active');
     });
 
-    // Pastikan mobile menu tersembunyi di desktop saat load
+    // Tutup menu saat klik tombol close atau link
+    $('.mobile-menu-close, .mobile-nav a').click(function() {
+    $('.mobile-menu-overlay').removeClass('active');
+    });
+
+    // Pastikan menu overlay tersembunyi di desktop
     if (window.innerWidth > 768) {
         $('.mobile-menu-overlay').hide();
     }
 
-    // Initialize Slick Carousel
+    // Slick Carousel
     $('.slideshow').slick({
         dots: true,
         infinite: true,
@@ -40,20 +35,21 @@ $(document).ready(function(){
         ]
     });
 
-    // Mobile image loader
+    // Load gambar mobile jika lebar layar kecil
     function loadMobileImages() {
         if (window.innerWidth <= 768) {
             $('.slideshow img').each(function() {
                 const src = $(this).attr('src');
-                $(this).attr('src', src.replace('.jpg', '-mobile.jpg'));
+                if (!src.includes('-mobile')) {
+                    $(this).attr('src', src.replace('.jpg', '-mobile.jpg'));
+                }
             });
         }
     }
 
-    // Run on load and resize
     $(window).on('load resize', loadMobileImages);
 
-    // Form Cek Status Nikah
+    // Form cek status nikah
     $('#marriageForm').submit(function(e){
         e.preventDefault();
         $('#result').html(`
@@ -75,7 +71,7 @@ $(document).ready(function(){
     }).format(today);
     $('#hijri-date').text(hijriDate);
 
-    // Simulasi Jadwal Sholat
+    // Jadwal sholat simulasi
     function updatePrayerTimes() {
         const times = {
             'Subuh': '04:30',
@@ -84,27 +80,9 @@ $(document).ready(function(){
             'Maghrib': '18:05',
             'Isya': '19:20'
         };
-        
         $.each(times, function(prayer, time){
             $(`.prayer-time:contains('${prayer}') div:nth-child(2)`).text(time + ' WIB');
         });
     }
     updatePrayerTimes();
-
-    // Toggle Mobile Menu
-    $('.mobile-menu-btn').on('click', function(){
-        if (window.innerWidth <= 768) {
-            console.log('Toggle menu clicked'); // Debug
-            $('.mobile-menu-overlay').toggleClass('active');
-        }
-    });
-
-    $('.mobile-menu-close').on('click', function(){
-        $('.mobile-menu-overlay').removeClass('active');
-    });
-
-    // Close mobile menu when clicking a link
-    $('.nav-link').on('click', function(){
-        $('.mobile-menu-overlay').removeClass('active');
-    });
 });

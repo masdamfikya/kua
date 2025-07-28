@@ -1,21 +1,5 @@
-// script.js (versi diperbaiki)
 $(document).ready(function(){
-    // Tombol hamburger untuk buka/tutup menu mobile
-    $('.mobile-menu-btn').click(function() {
-    $('.mobile-menu-overlay').toggleClass('active');
-    });
-
-    // Tutup menu saat klik tombol close atau link
-    $('.mobile-menu-close, .mobile-nav a').click(function() {
-    $('.mobile-menu-overlay').removeClass('active');
-    });
-
-    // Pastikan menu overlay tersembunyi di desktop
-    if (window.innerWidth > 768) {
-        $('.mobile-menu-overlay').hide();
-    }
-
-    // Slick Carousel
+    // Inisialisasi Slick Carousel
     $('.slideshow').slick({
         dots: true,
         infinite: true,
@@ -35,21 +19,25 @@ $(document).ready(function(){
         ]
     });
 
-    // Load gambar mobile jika lebar layar kecil
-    function loadMobileImages() {
-        if (window.innerWidth <= 768) {
-            $('.slideshow img').each(function() {
-                const src = $(this).attr('src');
-                if (!src.includes('-mobile')) {
-                    $(this).attr('src', src.replace('.jpg', '-mobile.jpg'));
-                }
-            });
-        }
-    }
+    // Toggle Mobile Menu
+    $('.mobile-menu-btn').on('click', function(){
+        console.log('Toggle menu clicked'); // Debug
+        $('.mobile-menu-overlay').toggleClass('active');
+        $('.main-container').toggleClass('active');
+    });
 
-    $(window).on('load resize', loadMobileImages);
+    $('.mobile-menu-close').on('click', function(){
+        $('.mobile-menu-overlay').removeClass('active');
+        $('.main-container').removeClass('active');
+    });
 
-    // Form cek status nikah
+    // Close mobile menu when clicking a link
+    $('.mobile-nav a').on('click', function(){
+        $('.mobile-menu-overlay').removeClass('active');
+        $('.main-container').removeClass('active');
+    });
+
+    // Form Cek Status Nikah
     $('#marriageForm').submit(function(e){
         e.preventDefault();
         $('#result').html(`
@@ -64,14 +52,14 @@ $(document).ready(function(){
 
     // Update Tanggal Hijriah
     const today = new Date();
-    const hijriDate = new Intl.DateTimeFormat('id-u-ca-islamic', {
+    const hijriDate = new Intl.DateTimeFormat('id-ID-u-ca-islamic', {
         day: 'numeric',
         month: 'long',
         year: 'numeric'
     }).format(today);
     $('#hijri-date').text(hijriDate);
 
-    // Jadwal sholat simulasi
+    // Simulasi Jadwal Sholat
     function updatePrayerTimes() {
         const times = {
             'Subuh': '04:30',
@@ -80,6 +68,7 @@ $(document).ready(function(){
             'Maghrib': '18:05',
             'Isya': '19:20'
         };
+        
         $.each(times, function(prayer, time){
             $(`.prayer-time:contains('${prayer}') div:nth-child(2)`).text(time + ' WIB');
         });

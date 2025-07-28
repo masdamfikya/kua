@@ -725,25 +725,96 @@
             }).format(today);
             $('#hijri-date').text(hijriDate);
 
-            // Simulasi Jadwal Sholat
-            function updatePrayerTimes() {
-                const times = {
-                    'Subuh': '04:30',
-                    'Dzuhur': '12:00',
-                    'Ashar': '15:15',
-                    'Maghrib': '18:05',
-                    'Isya': '19:20'
-                };
-                
-                $.each(times, function(prayer, time){
-                    $(`.prayer-time:contains('${prayer}') div:nth-child(2)`).text(time + ' WIB');
-                });
-            }
-            updatePrayerTimes();
-        });
-    </script>
-</body>
-</html> 'long',
+            <!-- Jadwal Sholat -->
+            <div class="prayer-times">
+                <h3><i class="fas fa-mosque"></i> Jadwal Sholat Hari Ini</h3>
+                <div class="prayer-grid">
+                    <div class="prayer-time">
+                        <div>Subuh</div>
+                        <div>04:30 WIB</div>
+                    </div>
+                    <div class="prayer-time">
+                        <div>Dzuhur</div>
+                        <div>12:00 WIB</div>
+                    </div>
+                    <div class="prayer-time">
+                        <div>Ashar</div>
+                        <div>15:15 WIB</div>
+                    </div>
+                    <div class="prayer-time">
+                        <div>Maghrib</div>
+                        <div>18:05 WIB</div>
+                    </div>
+                    <div class="prayer-time">
+                        <div>Isya</div>
+                        <div>19:20 WIB</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Info Tambahan -->
+        <div class="info-box" id="nikah">
+            <h3><i class="fas fa-heart"></i> Prosedur Pernikahan</h3>
+            <ol>
+                <li>Pendaftaran online/mandiri</li>
+                <li>Pembayaran biaya administrasi</li>
+                <li>Bimbingan pranikah (2x pertemuan)</li>
+                <li>Pelaksanaan akad nikah</li>
+                <li>Pencatatan dan penerbitan buku nikah</li>
+            </ol>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p>&copy; 2025 KUA Sungai Bahar - Semua Hak Dilindungi</p>
+            <p>Alamat: Jl. KUA No. 10, Kec. Sungai Bahar, Kab. Muaro Jambi | Telp: (0741) 123456</p>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // Inisialisasi Slick Carousel
+            $('.slideshow').slick({
+                dots: true,
+                infinite: true,
+                speed: 500,
+                fade: true,
+                cssEase: 'linear',
+                autoplay: true,
+                autoplaySpeed: 3000,
+                arrows: true
+            });
+            
+            // Form Cek Status Nikah
+            $('#marriageForm').submit(function(e){
+                e.preventDefault();
+                $('#result').html(`
+                    <div style="background:#f0f8ff; padding:15px; border-radius:5px;">
+                        <h4><i class="fas fa-check-circle" style="color:green;"></i> Data Ditemukan</h4>
+                        <p>Atas nama: <strong>Ahmad Budi</strong></p>
+                        <p>Tanggal Nikah: <strong>15 Januari 2025</strong></p>
+                        <p>Nomor Akta: <strong>123/VI/2025</strong></p>
+                    </div>
+                `).show();
+            });
+
+            // Update Tanggal Hijriah
+            const today = new Date();
+            const hijriDate = new Intl.DateTimeFormat('id-u-ca-islamic', {
+                day: 'numeric',
+                month: 'long',
                 year: 'numeric'
             }).format(today);
             $('#hijri-date').text(hijriDate);
